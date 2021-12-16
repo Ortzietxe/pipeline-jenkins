@@ -13,7 +13,7 @@ pipeline {
         // https://hub.docker.com/settings/security
         registryCredential = 'docker-hub'
 
-        publicPort = "80"
+        publicPort = "9002"
     }
 
     stages {
@@ -44,8 +44,8 @@ pipeline {
 
         stage('Docker Run') {
             steps {
-                sh "docker rm -f nginx-egibide"
-                sh "docker run -d -p ${publicPort}:80 --name nginx-egibide ${imageName}:latest"
+                sh "docker rm -f nginx-egibide-julen"
+                sh "docker run -d -p ${publicPort}:80 --name nginx-egibide-julen ${imageName}:latest"
             }
         }
     }
